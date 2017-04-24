@@ -7,19 +7,22 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
+
+ class << self
   # 与えられた文字列のハッシュ値を返す
-  def User.digest(string)
+  def digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
   # ランダムなトークンを返す
-  def User.new_token
+  def new_token
     SecureRandom.urlsafe_base64
   end
+ end 
 
   # 永続的セッションで使用するユーザーをデータベースに記憶する
   def remember
