@@ -34,8 +34,10 @@ class UserTest < ActiveSupport::TestCase
     valid_addresses.each do |valid_address|
       @user.email = valid_address
       assert @user.valid?, "#{valid_address.inspect} should be valid"
+    end
   end
-   end
+  
+  
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
@@ -43,14 +45,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
  
-   test "email addresses should be saved as lower-case" do
+  test "email addresses should be saved as lower-case" do
     mixed_case_email = "Foo@ExAMPle.CoM"
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
 
-   test "password should be present (nonblank)" do
+  test "password should be present (nonblank)" do
     @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?
   end
@@ -60,8 +62,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
-    test "authenticated? should return false for a user with nil digest" do
-        assert_not @user.authenticated?(:remember, '')
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?(:remember, '')
   end
   
   test "associated microposts should be destroyed" do
@@ -71,4 +73,33 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
- end
+    
+  test "should follow and unfollow a user" do
+    michael = users(:michael)
+    archer  = users(:archer)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    assert archer.followers.include?(michael)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
+  end
+  
+  test "feed should have the right posts" do
+    michael = users(:michael)
+    archer  = users(:archer)
+    lana    = users(:lana)
+    # フォローしているユーザーの投稿を確認
+    lana.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+    # 自分自身の投稿を確認
+    michael.microposts.each do |post_self|
+      assert michael.feed.include?(post_self)
+    end
+    # フォローしていないユーザーの投稿を確認
+    archer.microposts.each do |post_unfollowed|
+      assert_not michael.feed.include?(post_unfollowed)
+    end
+  end 
+end
