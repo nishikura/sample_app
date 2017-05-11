@@ -36,22 +36,17 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should redirect edit when logged in as wrong user" do
     log_in_as(@other_user)
-    get :edit, id: @user###
+    get :edit, id: @user
     assert flash.empty?
-    #
     assert_redirected_to root_url
-    #
   end
 
 
   test "should redirect update when logged in as wrong user" do
     log_in_as(@other_user)
     patch :update, id: @user, user: { name: @user.name, email: @user.email }
-    #
-    
     assert flash.empty?
     assert_redirected_to root_url
-    #
   end
   
   
@@ -63,6 +58,7 @@ class UsersControllerTest < ActionController::TestCase
                                             admin: true }
     assert_not @other_user.reload.admin?
   end
+<<<<<<< HEAD
   # test "should not allow the admin attribute to be edited via the web" do
   #  log_in_as(@other_user)
   #  assert_not @other_user.admin?
@@ -71,6 +67,8 @@ class UsersControllerTest < ActionController::TestCase
                                            # admin: true }
   #  assert_not @other_user.reload.admin?
   # end
+=======
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
 
   
   test "should redirect destroy when not logged in" do
@@ -83,7 +81,7 @@ class UsersControllerTest < ActionController::TestCase
   
   test "should redirect destroy when logged in as a non-admin" do
     log_in_as(@other_user)
-    assert_no_difference 'User.count' do#####
+    assert_no_difference 'User.count' do
       delete :destroy, id: @user
     end
     assert_redirected_to root_url

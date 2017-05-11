@@ -24,5 +24,10 @@ module SampleApp
     config.active_record.raise_in_transactional_callbacks = true
     
     # 認証トークンをremoteフォームに埋め込む
+<<<<<<< HEAD
     config.action_view.embed_authenticity_token_in_remote_forms = true  end
+=======
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+  end
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
 end
