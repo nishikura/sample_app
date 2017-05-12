@@ -37,7 +37,6 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
-  
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
@@ -73,10 +72,10 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
-    
-  test "should follow and unfollow a user" do
-    michael = users(:michael)
-    archer  = users(:archer)
+  
+ test "should follow and unfollow a user" do
+    michael  = users(:michael)
+    archer   = users(:archer)
     assert_not michael.following?(archer)
     michael.follow(archer)
     assert michael.following?(archer)
@@ -101,5 +100,5 @@ class UserTest < ActiveSupport::TestCase
     archer.microposts.each do |post_unfollowed|
       assert_not michael.feed.include?(post_unfollowed)
     end
-  end 
+  end
 end
