@@ -12,5 +12,19 @@ three:
 
 four:
   follower: archer
+<<<<<<< HEAD
   followed: michael
 
+=======
+<<<<<<< HEAD
+  followed: michael
+
+=======
+<<<<<<< HEAD
+  followed: michael
+
+=======
+  followed: michael
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+>>>>>>> e6fdcabef359d177e94501ea741c7c28e5452f97

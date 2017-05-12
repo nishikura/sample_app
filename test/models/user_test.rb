@@ -37,6 +37,16 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+>>>>>>> e6fdcabef359d177e94501ea741c7c28e5452f97
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
@@ -72,10 +82,29 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+>>>>>>> e6fdcabef359d177e94501ea741c7c28e5452f97
   
  test "should follow and unfollow a user" do
     michael  = users(:michael)
     archer   = users(:archer)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+    
+  test "should follow and unfollow a user" do
+    michael = users(:michael)
+    archer  = users(:archer)
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+>>>>>>> e6fdcabef359d177e94501ea741c7c28e5452f97
     assert_not michael.following?(archer)
     michael.follow(archer)
     assert michael.following?(archer)
@@ -83,19 +112,41 @@ class UserTest < ActiveSupport::TestCase
     michael.unfollow(archer)
     assert_not michael.following?(archer)
   end
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
   
+<<<<<<< HEAD
+=======
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+>>>>>>> e6fdcabef359d177e94501ea741c7c28e5452f97
+  
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
   test "feed should have the right posts" do
     michael = users(:michael)
     archer  = users(:archer)
     lana    = users(:lana)
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
     # フォローしているユーザーの投稿を確認
     lana.microposts.each do |post_following|
       assert michael.feed.include?(post_following)
     end
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
     # 自分自身の投稿を確認
     michael.microposts.each do |post_self|
       assert michael.feed.include?(post_self)
     end
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
     # フォローしていないユーザーの投稿を確認
     archer.microposts.each do |post_unfollowed|
       assert_not michael.feed.include?(post_unfollowed)

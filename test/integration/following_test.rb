@@ -25,12 +25,26 @@ class FollowingTest < ActionDispatch::IntegrationTest
       assert_select "a[href=?]", user_path(user)
     end
   end
+<<<<<<< HEAD
  
+=======
+<<<<<<< HEAD
+ 
+=======
+<<<<<<< HEAD
+ 
+=======
+  
+  
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+>>>>>>> e6fdcabef359d177e94501ea741c7c28e5452f97
   test "should follow a user the standard way" do
     assert_difference '@user.following.count', 1 do
       post relationships_path, followed_id: @other.id
     end
   end
+<<<<<<< HEAD
 
   test "should follow a user with Ajax" do
     assert_difference '@user.following.count', 1 do
@@ -39,13 +53,23 @@ class FollowingTest < ActionDispatch::IntegrationTest
   end
 
   test "should unfollow a user the standard way" do
+=======
+  
+  
+  test "should follow a user with Ajax" do
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
     @user.follow(@other)
     relationship = @user.active_relationships.find_by(followed_id: @other.id)
     assert_difference '@user.following.count', -1 do
       delete relationship_path(relationship)
     end
   end
+<<<<<<< HEAD
 
+=======
+  
+  
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
   test "should unfollow a user with Ajax" do
     @user.follow(@other)
     relationship = @user.active_relationships.find_by(followed_id: @other.id)
@@ -54,3 +78,7 @@ class FollowingTest < ActionDispatch::IntegrationTest
     end
   end
 end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
