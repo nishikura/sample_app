@@ -20,6 +20,9 @@ User.create!(name:  "Example User",
                password_confirmation: password)
                activated: true,
                activated_at: Time.zone.now)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
 end
 
 
@@ -33,6 +36,25 @@ end
 
 # マイクロポスト
 >>>>>>> following-users
+=======
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
+end
+
+
+# マイクロポスト
+
+<<<<<<< HEAD
+=======
+               password_confirmation: password
+              activated: true,
+              activated_at: Time.zone.now)
+end
+
+# マイクロポスト
+>>>>>>> following-users
+=======
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
@@ -40,6 +62,12 @@ users = User.order(:created_at).take(6)
 end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
 
 # リレーションシップ
 
@@ -49,6 +77,10 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
 =======
 # リレーションシップ
 users = User.all
@@ -58,3 +90,8 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 >>>>>>> following-users
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed

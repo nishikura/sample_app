@@ -1,7 +1,21 @@
 <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
              html: { method: :delete },
+=======
+             html: { method: :delete }) do |f| %>
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
              remote: true) do |f| %>
   <%= f.submit "Unfollow", class: "btn" %>
 <% end %>
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 11ad385fd0409f3f71c7025950dfe7559a55046e
+>>>>>>> 148c8d617f3eacbd8be20c89085e047a789f2aed
