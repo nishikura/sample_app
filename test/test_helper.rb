@@ -5,6 +5,7 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   fixtures :all
   include ApplicationHelper
+  include SessionsHelper
   # テストユーザーがログインしていればtrueを返す
   def is_logged_in?
     !session[:user_id] .nil?
